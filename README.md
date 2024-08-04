@@ -76,4 +76,3 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ---
 Thank you for using the **GitHub Project Recommender**! We hope it helps you find the best projects for your needs. If you have any questions or suggestions, feel free to reach out or contribute to the project.
 ---
-![image](https://github.com/user-attachments/assets/e66d085e-4e9f-4cb3-b1e9-45047850e25b)
