@@ -3,6 +3,8 @@ Welcome to the **GitHub Project Recommender**, an innovative solution designed t
 
 **🎯 Noble Aim**
 The primary aim of this project is to assist developers, researchers, and enthusiasts in discovering valuable GitHub repositories efficiently. By providing a search-based recommendation system, we hope to enhance productivity and foster collaboration within the developer community.
+
+
 **🚀 Features**
 •	Advanced NLP Processing: Utilizes spaCy to process and lemmatize user input for precise keyword extraction and search accuracy.
 •	GitHub API Integration: Seamlessly connects to the GitHub API to fetch repositories based on processed keywords.
@@ -10,6 +12,8 @@ The primary aim of this project is to assist developers, researchers, and enthus
 •	Dynamic Updates: Continuously updates the recommendation model with each new input, ensuring fresh and accurate suggestions.
 •	User-Friendly Interface: Simple and intuitive UI for entering project ideas and viewing recommendations.
 •	Secure: Environment variables for sensitive data like `SECRET_KEY` ensure your application's security.
+
+
 **🛠️ Technologies and Tools Used**
 **Backend**
 •	Django: The high-level Python Web framework that encourages rapid development and clean, pragmatic design.
@@ -30,6 +34,8 @@ The primary aim of this project is to assist developers, researchers, and enthus
 •	python-decouple: v3.7
 •	dj-database-url: v0.5.0
 •	whitenoise: v6.0.0
+
+
 **📚 Getting Started
 Prerequisites**
 Python: Ensure you have Python installed on your machine.
@@ -59,8 +65,10 @@ python manage.py runserver
 **6.	Open the Application:**
 Visit `http://localhost:8000` in your web browser.
 
+
 **🚀 Deployment to Railway**
 **Note:** Deployment is currently in progress.(AWS Lambda Preferred)
+
 
 🙌 Acknowledgments
 •	spaCy: For the powerful NLP capabilities.
