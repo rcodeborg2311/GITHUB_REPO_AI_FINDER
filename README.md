@@ -61,13 +61,7 @@ Visit `http://localhost:8000` in your web browser.
 
 **🚀 Deployment to Railway**
 **Note:** Deployment is currently in progress.(AWS Lambda Preferred)
-Commands for Railway Console
-```bash
-python manage.py migrate
-python manage.py collectstatic
-```
-🛡️ License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
 🙌 Acknowledgments
 •	spaCy: For the powerful NLP capabilities.
 •	GitHub API: For providing access to a vast array of repositories.
