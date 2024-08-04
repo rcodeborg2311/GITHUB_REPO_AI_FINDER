@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GITHUB_AI_AGENT</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #218838;
+        }
+        .recommendations {
+            margin-top: 30px;
+        }
+        .recommendations h2 {
+            text-align: center;
+            color: #333;
+        }
+        .recommendations ul {
+            list-style: none;
+            padding: 0;
+        }
+        .recommendations li {
+            background-color: #f9f9f9;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: box-shadow 0.3s ease;
+        }
+        .recommendations li:hover {
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .recommendations li a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .recommendations li p {
+            margin: 10px 0 0;
+            color: #666;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Project Recommender</h1>
+        <form id="project-form">
+            <label for="user-input">Enter your project idea or requirement:</label>
+            <input type="text" id="user-input" name="user_input" required>
+            <input type="submit" value="Get Recommendations">
+        </form>
+        <div class="recommendations">
+            <h2>Recommended Projects</h2>
+            <ul id="project-list"></ul>
+        </div>
+        <div id="error-message" class="error"></div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('project-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                let userInput = document.getElementById('user-input').value;
+
+                // Clear previous error message
+                document.getElementById('error-message').innerText = '';
+
+                fetch('/get_recommendations/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    body: new URLSearchParams({
+                        'user_input': userInput
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    let projectList = document.getElementById('project-list');
+                    projectList.innerHTML = ''; // Clear previous results
+
+                    if (data.projects) {
+                        data.projects.forEach(project => {
+                            let li = document.createElement('li');
+                            li.innerHTML = `<a href="${project.html_url}" target="_blank">${project.name}</a>
+                                            <p>${project.description || 'No description available'}</p>`;
+                            projectList.appendChild(li);
+                        });
+                    } else {
+                        document.getElementById('error-message').innerText = data.error || 'An error occurred';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('error-message').innerText = 'An error occurred while fetching recommendations.';
+                });
+            });
+        });
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    </script>
+</body>
+</html>
