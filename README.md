@@ -58,7 +58,6 @@ python manage.py runserver
 
 **6.	Open the Application:**
 Visit `http://localhost:8000` in your web browser.
-![image](https://github.com/user-attachments/assets/7ee92ffe-c944-4e6d-946d-0d0e88c54bb5)
 
 **🚀 Deployment to Railway**
 **Note:** Deployment is currently in progress.(AWS Lambda Preferred)
