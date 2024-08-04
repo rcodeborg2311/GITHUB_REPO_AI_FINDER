@@ -1,1 +1,0 @@
-web: gunicorn github_agent_project.wsgi --log-file -
