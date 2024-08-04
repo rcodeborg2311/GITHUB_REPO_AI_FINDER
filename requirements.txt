@@ -1,5 +1,5 @@
 Django==4.2.14
 joblib==1.4.2
 Requests==2.32.3
-scikit_learn==0.24.2
+scikit_learn==1.2.2
 spacy==3.7.5
