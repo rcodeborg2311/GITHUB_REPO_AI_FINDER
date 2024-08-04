@@ -1,114 +1,80 @@
 GitHub Project Recommender
-Welcome to the GitHub Project Recommender, your ultimate solution for discovering the most relevant and trending GitHub repositories based on your project ideas! This Django-powered web application leverages the power of Natural Language Processing (NLP) and Machine Learning to analyze your input and provide tailored recommendations from the vast GitHub ecosystem.
+Welcome to the **GitHub Project Recommender**, an innovative solution designed to help users find relevant and trending GitHub repositories based on their search queries. This project leverages the power of Natural Language Processing (NLP) and Machine Learning to analyze user input and provide tailored recommendations from the vast GitHub ecosystem.
 
-🌟 Features
-Advanced NLP Processing: Uses spaCy to process and lemmatize user input for precise keyword extraction and search accuracy.
-GitHub API Integration: Seamlessly connects to the GitHub API to fetch repositories based on processed keywords.
-Machine Learning: Employs TF-IDF Vectorization and Cosine Similarity to recommend the most relevant projects.
-Dynamic Updates: Continuously updates the recommendation model with each new input, ensuring fresh and accurate suggestions.
-User-Friendly Interface: Simple and intuitive UI for entering project ideas and viewing recommendations.
-Secure: Environment variables for sensitive data like SECRET_KEY ensure your application's security.
-🚀 Quick Start
-
-
+**🎯 Noble Aim**
+The primary aim of this project is to assist developers, researchers, and enthusiasts in discovering valuable GitHub repositories efficiently. By providing a search-based recommendation system, we hope to enhance productivity and foster collaboration within the developer community.
+**🚀 Features**
+•	Advanced NLP Processing: Utilizes spaCy to process and lemmatize user input for precise keyword extraction and search accuracy.
+•	GitHub API Integration: Seamlessly connects to the GitHub API to fetch repositories based on processed keywords.
+•	Machine Learning: Employs TF-IDF Vectorization and Cosine Similarity to recommend the most relevant projects.
+•	Dynamic Updates: Continuously updates the recommendation model with each new input, ensuring fresh and accurate suggestions.
+•	User-Friendly Interface: Simple and intuitive UI for entering project ideas and viewing recommendations.
+•	Secure: Environment variables for sensitive data like `SECRET_KEY` ensure your application's security.
+**🛠️ Technologies and Tools Used**
+**Backend**
+•	Django: The high-level Python Web framework that encourages rapid development and clean, pragmatic design.
+•	Gunicorn: A Python WSGI HTTP Server for UNIX, used to serve the Django application.
+**Machine Learning and NLP**
+•	spaCy: An open-source software library for advanced Natural Language Processing, used for processing and lemmatizing user input.
+•	scikit-learn: A machine learning library in Python, used for TF-IDF Vectorization and calculating Cosine Similarity.
+**Deployment**
+•	Railway: A platform-as-a-service (PaaS) that provides easy deployment and management of web applications.
+•	Whitenoise: Used to serve static files directly from the application in production.
+**Dependencies**
+•	Django: v4.2.14
+•	joblib: v1.4.2
+•	requests: v2.32.3
+•	scikit-learn: v1.2.2
+•	spaCy: v3.7.5
+•	gunicorn: v20.1.0
+•	python-decouple: v3.7
+•	dj-database-url: v0.5.0
+•	whitenoise: v6.0.0
+**📚 Getting Started
+Prerequisites**
+Python: Ensure you have Python installed on your machine.
 Installation
-Clone the Repository:
-bash
-
-git clone https://github.com/username/repo-name.git
-cd repo-name
-
-Set Up Virtual Environment:
-bash
-
+1.	Set Up Virtual Environment:
+```bash
 python3 -m venv myenv
 source myenv/bin/activate
-
-Install Dependencies:
-bash
-
+```
+2.	Install Dependencies:
+```bash
 pip install -r requirements.txt
-Set Environment Variables:
-Create a .env file in the project root and add the necessary variables:
+```
+3.	Set Environment Variables:
 
-makefile
-
+Create a `.env` file in the project root and add the necessary variables:
 SECRET_KEY=your_secret_key_here
-Run Migrations:
+DEBUG=True
 
-bash
-
+4.	Run Migrations:
 python manage.py migrate
-Start the Development Server:
 
-bash
+5.	Start the Development Server:
 
 python manage.py runserver
-Open the Application:
-Visit http://localhost:8000 in your web browser.
 
-Deployment
-To deploy this project on Vercel:
+**6.	Open the Application:**
+Visit `http://localhost:8000` in your web browser.
+![image](https://github.com/user-attachments/assets/7ee92ffe-c944-4e6d-946d-0d0e88c54bb5)
 
-Install Vercel CLI:
-bash
-
-npm install -g vercel
-
-Log In to Vercel:
-bash
-
-vercel login
-Create vercel.json:
-In the root of your project, create a vercel.json file:
-{
-  "version": 2,
-  "builds": [
-    {
-      "src": "manage.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "50mb" }
-    },
-    {
-      "src": "requirements.txt",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/manage.py"
-    }
-  ]
-}
-
-Deploy:
-bash
-
-vercel
-Set Environment Variables on Vercel:
-
-Go to your project on Vercel.
-Navigate to the Settings tab.
-Add necessary environment variables such as SECRET_KEY.
-💡 Usage
-Enter Your Project Idea: Type your project idea or requirement into the input field.
-Get Recommendations: Click the "Get Recommendations" button to fetch relevant GitHub repositories.
-View Results: Browse through the list of recommended projects, each with a brief description and a link to the repository.
-📚 Contributing
-We welcome contributions to improve the GitHub Project Recommender. To contribute:
-
-Fork the repository.
-Create a new branch for your feature or bugfix.
-Make your changes and commit them with a descriptive message.
-Submit a pull request to the main branch.
+**🚀 Deployment to Railway**
+**Note:** Deployment is currently in progress.(AWS Lambda Preferred)
+Commands for Railway Console
+```bash
+python manage.py migrate
+python manage.py collectstatic
+```
 🛡️ License
-This project is licensed under the MIT License. See the LICENSE file for more details.
-
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 🙌 Acknowledgments
-spaCy: For the powerful NLP capabilities.
-GitHub API: For providing access to a vast array of repositories.
-Vercel: For the seamless and free deployment platform.
-Thank you for using the GitHub Project Recommender! We hope it helps you find the best projects for your needs.
+•	spaCy: For the powerful NLP capabilities.
+•	GitHub API: For providing access to a vast array of repositories.
+•	Railway: For the easy and powerful deployment platform.
+---
+Thank you for using the **GitHub Project Recommender**! We hope it helps you find the best projects for your needs. If you have any questions or suggestions, feel free to reach out or contribute to the project.
+---
+![image](https://github.com/user-attachments/assets/e66d085e-4e9f-4cb3-b1e9-45047850e25b)
 
-Feel free to customize this README further to better match your specific project details and preferences.
