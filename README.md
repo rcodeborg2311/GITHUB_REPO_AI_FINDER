@@ -66,7 +66,7 @@ python manage.py runserver
 Visit `http://localhost:8000` in your web browser.
 
 
-**🚀 Deployment to Railway**
+**🚀 Deployment**
 **Note:** Deployment is currently in progress.(AWS Lambda Preferred)
 
 
